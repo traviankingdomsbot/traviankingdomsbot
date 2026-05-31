@@ -1,0 +1,35 @@
+name: daily-time
+
+# Runs every day and writes the current time into time.txt, so the repo gets a
+# fresh commit each day (keeps it near the top of "recently updated" lists).
+on:
+  schedule:
+    # 01:00 UTC every day. GitHub cron is UTC-only and may be delayed a few
+    # minutes under load — that's expected.
+    - cron: "0 1 * * *"
+  # Lets you trigger it by hand from the Actions tab too.
+  workflow_dispatch:
+
+# The built-in GITHUB_TOKEN needs write access to push the commit.
+# No personal access token required.
+permissions:
+  contents: write
+
+jobs:
+  write-time:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write current time
+        run: date -u +"%Y-%m-%d %H:%M:%S UTC" > time.txt
+
+      - name: Commit and push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add time.txt
+          # "|| exit 0" guards the rare case where nothing changed, so the job
+          # doesn't fail on an empty commit. The "[skip ci]" tag avoids loops.
+          git commit -m "chore: update time.txt [skip ci]" || exit 0
+          git push
