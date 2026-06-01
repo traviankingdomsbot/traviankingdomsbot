@@ -9,7 +9,7 @@ empire — 24/7, invisibly, while you sleep.**
 
 <br>
 
-## 👉 Get it at **[traviankingdomsbot.com](https://traviankingdomsbot.com)** 👈
+## 👉 Get it at **[traviankingdomsbot.com](https://traviankingdomsbot.com?utm_source=github&utm_medium=readme)** 👈
 
 <br>
 
@@ -96,7 +96,7 @@ Runs on **Windows · macOS · Linux · any SSH server**.
 
 ## Ready to automate your kingdom?
 
-### 👉 **[traviankingdomsbot.com](https://traviankingdomsbot.com)** 👈
+### 👉 **[traviankingdomsbot.com](https://traviankingdomsbot.com?utm_source=github&utm_medium=readme)** 👈
 
 *Join the waitlist and be among the first to get access.*
 
